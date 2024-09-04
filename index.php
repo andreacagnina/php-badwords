@@ -1,5 +1,6 @@
 <?php
-$lorem =                         'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quibusdam assumenda quod tenetur excepturi, qui unde commodi velit alias, cum aut quia quisquam minima exercitationem expedita! Vel officia perspiciatis magnam temporibus!
+$lorem =                       
+'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quibusdam assumenda quod tenetur excepturi, qui unde commodi velit alias, cum aut quia quisquam minima exercitationem expedita! Vel officia perspiciatis magnam temporibus!
 Quibusdam ratione porro inventore repudiandae molestias officia possimus fugiat, eligendi pariatur unde odit soluta perferendis quidem impedit aspernatur sunt, doloremque tempora sit vel. Iste saepe sed numquam, suscipit quaerat incidunt.
 Est nihil fugit, sunt cumque amet accusamus reprehenderit vero ipsam in repudiandae consequatur non, ex, excepturi totam? Laborum asperiores harum amet unde placeat id eaque, nihil perspiciatis culpa debitis odio.
 Tempora recusandae placeat eveniet dolore ipsam illum dolor inventore debitis natus pariatur esse sint praesentium aperiam iusto excepturi non at perspiciatis, sequi illo! Accusamus perferendis excepturi quia sunt ad consequatur!
@@ -17,7 +18,8 @@ Sed, eius. Ab magnam eaque exercitationem optio architecto! Modi, perspiciatis s
 Amet deserunt voluptatum quo omnis temporibus a, cumque nobis dolorem cupiditate iste accusamus perferendis quas hic sit optio quod qui nihil recusandae maiores dolores quam asperiores. Earum aut vel asperiores.
 Necessitatibus optio, reiciendis nobis deleniti rem aspernatur soluta culpa fugit atque maiores quos consectetur laudantium quae, eum omnis dicta cum voluptatibus aperiam vero quisquam, assumenda debitis pariatur officia modi. Molestias!
 Officia, debitis! Quae explicabo natus aliquid. Molestias facilis obcaecati vero mollitia aperiam non placeat, recusandae repellendus reiciendis libero in, natus quasi beatae necessitatibus. Delectus voluptas repudiandae est veniam eaque quisquam!
-Obcaecati vel praesentium, quasi dolore ullam veritatis pariatur sit laudantium rem amet doloremque! Magni tempore fugit expedita totam quae culpa atque velit repellat eos, blanditiis dolorum eius ipsam laborum at.';
+Obcaecati vel praesentium, quasi dolore ullam veritatis pariatur sit laudantium rem amet doloremque! Magni tempore fugit expedita totam quae culpa atque velit repellat eos, blanditiis dolorum eius ipsam laborum at.'
+;
 ?>
 
 <!DOCTYPE html>
@@ -37,7 +39,7 @@ Obcaecati vel praesentium, quasi dolore ullam veritatis pariatur sit laudantium 
                         <div class="content">
                             <div class="mb-3">
                                 <label for="exampleFormControlInput1" class="form-label">Inserisci una parola da censurare:</label>
-                                <input type="text" class="form-control" id="exampleFormControlInput1" name="bad-word" placeholder="Per esempio 'dolorem'">
+                                <input type="text" class="form-control" id="exampleFormControlInput1" name="badWord" placeholder="Per esempio 'Lorem'">
                             </div>
                         </div>
                     </div>
@@ -47,7 +49,7 @@ Obcaecati vel praesentium, quasi dolore ullam veritatis pariatur sit laudantium 
                         <div class="content">
                             <div class="mb-3">
                                 <label for="exampleFormControlTextarea1" class="form-label">Scrivi un testo:</label>
-                                <textarea class="form-control" id="exampleFormControlTextarea1" name="paragraph" rows="20" cols="50"><?php echo $lorem ?></textarea>
+                                <textarea class="form-control" id="exampleFormControlTextarea1" name="paragraph" rows="10" cols="50"><?php echo $lorem ?></textarea>
                             </div>
                                 <div class="col-12">
                                 <button class="btn btn-primary" type="submit">Invia</button>

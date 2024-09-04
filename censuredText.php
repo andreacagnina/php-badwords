@@ -1,11 +1,19 @@
 <?php
-    $badWord = $_GET['bad-word'];
+    $badWord = $_GET['badWord'];
     $paragraph = $_GET['paragraph'];
 
     $strleng = strlen($paragraph);
     $withoutSpaces = str_ireplace(" ","",$paragraph);
     $strlengWSpaces = strlen($withoutSpaces);
 
+    $censuredParagraph = str_ireplace($badWord,"***",$paragraph);
+    $censuredleng = str_ireplace("***","",$censuredParagraph);
+    $strlengCensuredLeng = strlen($censuredleng);
+
+    $intStrleng = (int)$strleng;
+    $intCensuredleng = (int)$strlengCensuredLeng;
+
+    $calc = $intStrleng-$intCensuredleng;
 ?>
 
 <!DOCTYPE html>
@@ -26,9 +34,11 @@
                         <p class="my-3">
                             <?php echo $paragraph; ?> 
                         </p>
-                        <p>
-
+                        <h2>Questo paragrafo CENSURATO contiene: <?php echo $strleng; ?> caratteri (spazi inclusi), <?php echo $strlengWSpaces; ?> caratteri (spazi esclusi) e <?php echo $calc; ?> caratteri censurati 🤬 🙉</h2>
+                        <p class="my-3">
+                            <?php echo $censuredParagraph; ?>
                         </p>
+                    
                     </div>
                 </div>
             </div>
