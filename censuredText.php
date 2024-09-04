@@ -2,18 +2,23 @@
 $badWord = $_GET['badWord'];
 $paragraph = $_GET['paragraph'];
 
+$pattern = '/\b' . preg_quote($badWord, '/') . '\b/i';
+
+$strlngBadWord = strlen($badWord);
 $strleng = strlen($paragraph);
 $withoutSpaces = str_ireplace(" ", "", $paragraph);
 $strlengWSpaces = strlen($withoutSpaces);
 
-$censuredParagraph = str_ireplace($badWord, '<span class="text-danger fw-bold fs-5">***</span>', $paragraph);
-$censuredleng = str_ireplace('<span class="text-danger fw-bold fs-5">***</span>', "", $censuredParagraph);
+$censuredParagraph = preg_replace($pattern, '<span class="text-danger fw-bold fs-5 text-decoration-underline">***</span>', $paragraph);
+$censuredleng = str_ireplace('<span class="text-danger fw-bold fs-5 text-decoration-underline">***</span>', "", $censuredParagraph);
 $strlengCensuredLeng = strlen($censuredleng);
 
 $intStrleng = (int)$strleng;
 $intCensuredleng = (int)$strlengCensuredLeng;
 
-$calc = $intStrleng - $intCensuredleng;
+$calcLetters = $intStrleng - $intCensuredleng;
+$calcBadWords = $calcLetters / $strlngBadWord;
+
 ?>
 
 <!DOCTYPE html>
@@ -36,7 +41,7 @@ $calc = $intStrleng - $intCensuredleng;
                         <p class="my-3">
                             <?php echo $paragraph; ?>
                         </p>
-                        <h2>Questo paragrafo CENSURATO contiene: <?php echo $strleng; ?> caratteri (spazi inclusi), <?php echo $strlengWSpaces; ?> caratteri (spazi esclusi) e <?php echo $calc; ?> caratteri censurati 🤬🙉</h2>
+                        <h2>Questo paragrafo contiene: <?php echo $strleng; ?> caratteri (spazi inclusi), <?php echo $strlengWSpaces; ?> caratteri (spazi esclusi) e <?php echo $calcLetters; ?> caratteri censurati. <br>Sono <?php echo $calcBadWords ?> le parole trovate e ritenute proibite🤬🙉</h2>
                         <p class="my-3">
                             <?php echo $censuredParagraph; ?>
                         </p>
