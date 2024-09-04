@@ -2,13 +2,12 @@
 $badWord = $_GET['badWord'];
 $paragraph = $_GET['paragraph'];
 
-$pattern = '/\b' . preg_quote($badWord, '/') . '\b/i';
 
-$strlngBadWord = strlen($badWord);
 $strleng = strlen($paragraph);
 $withoutSpaces = str_ireplace(" ", "", $paragraph);
 $strlengWSpaces = strlen($withoutSpaces);
 
+$pattern = '/\b' . preg_quote($badWord, '/') . '\b/i';
 $censuredParagraph = preg_replace($pattern, '<span class="text-danger fw-bold fs-5 text-decoration-underline">***</span>', $paragraph);
 $censuredleng = str_ireplace('<span class="text-danger fw-bold fs-5 text-decoration-underline">***</span>', "", $censuredParagraph);
 $strlengCensuredLeng = strlen($censuredleng);
@@ -17,6 +16,7 @@ $intStrleng = (int)$strleng;
 $intCensuredleng = (int)$strlengCensuredLeng;
 
 $calcLetters = $intStrleng - $intCensuredleng;
+$strlngBadWord = strlen($badWord);
 $calcBadWords = $calcLetters / $strlngBadWord;
 
 ?>
@@ -41,7 +41,7 @@ $calcBadWords = $calcLetters / $strlngBadWord;
                         <p class="my-3">
                             <?php echo $paragraph; ?>
                         </p>
-                        <h2>Questo paragrafo contiene: <?php echo $strleng; ?> caratteri (spazi inclusi), <?php echo $strlengWSpaces; ?> caratteri (spazi esclusi) e <?php echo $calcLetters; ?> caratteri censurati. <br>Sono <?php echo $calcBadWords ?> le parole trovate e ritenute proibite🤬🙉</h2>
+                        <h2>Questo paragrafo contiene: <?php echo $strleng; ?> caratteri (spazi inclusi), <?php echo $strlengWSpaces; ?> caratteri (spazi esclusi) e <?php echo $calcLetters; ?> caratteri censurati. <br>Sono <?php echo $calcBadWords ?> le ripetizioni della parola ritenuta proibita in questo testo 🤬🙉</h2>
                         <p class="my-3">
                             <?php echo $censuredParagraph; ?>
                         </p>
