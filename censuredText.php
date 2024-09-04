@@ -1,6 +1,11 @@
 <?php
     $badWord = $_GET['bad-word'];
     $paragraph = $_GET['paragraph'];
+
+    $strleng = strlen($paragraph);
+    $withoutSpaces = str_ireplace(" ","",$paragraph);
+    $strlengWSpaces = strlen($withoutSpaces);
+
 ?>
 
 <!DOCTYPE html>
@@ -17,7 +22,8 @@
             <div class="row">
                 <div class="col-12">
                     <div class="content">
-                        <p>
+                        <h2>Questo paragrafo contiene: <?php echo $strleng; ?> caratteri (spazi inclusi) e <?php echo $strlengWSpaces; ?> caratteri (spazi esclusi)</h2>
+                        <p class="my-3">
                             <?php echo $paragraph; ?> 
                         </p>
                         <p>
